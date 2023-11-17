@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title >
+      Web
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form (ngSubmit)="registrar()">
+      <ion-card class="card-registro">
+        <ion-card-content>
+          <ion-item>
+            <ion-input [(ngModel)]="usuario" required name="usuario" label="Usuario:" maxlength="15"></ion-input>
+          </ion-item>
+          <div *ngIf="usuarioError" class="error-message">
+            {{ usuarioError }}
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="nombre" required name="nombre" label="Nombre:" maxlength="30"></ion-input>
+          </ion-item>
+          <div *ngIf="nombreError" class="error-message">
+            {{ nombreError }}
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="apellido" required name="apellido" label="Apellido:" maxlength="30"></ion-input>
+          </ion-item>
+          <div *ngIf="apellidoError" class="error-message">
+            {{ apellidoError }}
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="rut" required name="rut" label="Rut:" maxlength="9"></ion-input>
+          </ion-item>
+          <div *ngIf="rutError" class="error-message">
+            {{ rutError }}
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="carrera" required name="carrera" label="Carrera:" maxlength="50"></ion-input>
+          </ion-item>
+          <div *ngIf="carreraError" class="error-message">
+            {{ carreraError }}
+          </div>
+          <ion-item>
+            <ion-input [(ngModel)]="contrasena" required name="contrasena" label="Contraseña:"  maxlength="4"></ion-input>
+          </ion-item>
+          <div *ngIf="contrasenaError" class="error-message">
+            {{ contrasenaError }}
+          </div>
+     
+          <ion-item>
+            <ion-select name="region" label="Region:" [(ngModel)]="region" (ionChange)="cambiarRegion()" interface="popover">
+              <ion-select-option *ngFor="let reg of regiones" [value]="reg.id">{{ reg.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-item>
+            <ion-select label="Comuna:" name="comuna" [(ngModel)]="comuna" [disabled]="!region" interface="popover">
+              <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.id">{{ comuna.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+         
+          
+        
+          
+        </ion-card-content>
+        <ion-button id="registro" class="boton-registro" expand="full" type="submit">Registrar</ion-button>
+      </ion-card>
+    </form>
+  </div>
+</ion-content>
+
+

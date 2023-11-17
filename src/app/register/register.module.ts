@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { RegisterPageRoutingModule } from './register-routing.module';
+import { RegisterPage } from './register.page';
+import { HttpClientModule } from '@angular/common/http';
+import { RegionesComponent } from '../components/lista-regiones/lista-regiones.component';
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RegisterPageRoutingModule,
+    HttpClientModule
+  ],
+  declarations: [RegisterPage, RegionesComponent]
+})
+export class RegisterPageModule {}

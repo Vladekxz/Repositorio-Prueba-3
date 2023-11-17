@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title >
+      Web
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+ 
+    <ion-card class="card-login">
+      <ion-card-content>
+
+        <div class="qr">
+          <select #selectList (change)="selectCamera(selectList.value)">
+            <option *ngFor="let camera of cameras" value={{camera.label}}>
+              {{ camera.label }}
+            </option>
+          </select>
+
+          <zxing-scanner style="width: 20rem;"
+          [enable]="scannerEnabled"
+          [device]="myDevice"
+          (camerasFound)="camerasFoundHandler($event)"
+          (scanSuccess)="scanSuccessHandler($event)"
+        ></zxing-scanner>
+        <p class="stringDatos" *ngFor="let result of results">{{result}}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+

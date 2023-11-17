@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title #tituloHome class="ion-text-center">
+      Clase
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-title id="titulo-home" class="ion-text-center"> Bienvenido, {{ nombre }} {{ apellido }} </ion-title>
+
+  <div class="container-card">
+    <ion-card #cardDatos class="card-datos">
+      <ion-card-header>
+        <h3><strong>Datos Personales</strong></h3>
+      </ion-card-header>
+      <ion-card-content>
+        <div>
+          <img [src]="obtenerFoto()" style="width: 300px;">
+          <ion-button size="medium" expand="block"  (click)="takePicture()"> Tomar Selfie </ion-button>
+        </div>
+ 
+        <ion-item>
+          <p>Nombre Profesor: {{ nombreProfesor }}</p>
+        </ion-item>
+
+        <ion-item>
+          <p>Hora Clase: {{ hora }}</p>
+        </ion-item>
+
+        <ion-item>
+          <p>Sala: {{ sala }}</p>
+        </ion-item>
+
+        <ion-item>
+          <p>Día: {{ dia }}</p>
+        </ion-item>
+
+        <ion-item>
+          <p>Nombre: {{ nombre }} {{ apellido }}</p>
+        </ion-item>
+
+        <ion-item>
+          <p>Rut: {{ rut }}  </p>
+        </ion-item>
+
+        <div class="timestamp">
+          <p>Fecha de ingreso: {{ timestamp }}</p>
+        </div>
+
+        <div >
+          <p>Latitud: {{ latitude }}</p>
+          <p>Longitud: {{ longitude }}</p>
+        </div>
+
+        
+      
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>

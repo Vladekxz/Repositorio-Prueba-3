@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Web
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form (submit)="cambiarContrasena()">
+      <ion-card class="card-registro">
+        <ion-card-content>
+          <ion-item>
+            <ion-input [(ngModel)]="usuario" required name="usuario" label="Usuario:" maxlength="15"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="rut" required name="rut" label="Rut:" maxlength="9"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="nuevaContrasena" required name="nuevaContrasena" label="Nueva Contraseña:" type="password" maxlength="4"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="mensajeError" color="danger">
+            {{ mensajeError }}
+          </ion-item>
+          <ion-item *ngIf="mensajeExito" color="success">
+            {{ mensajeExito }}
+          </ion-item>
+        </ion-card-content>
+        <ion-button id="registro" class="boton-registro" expand="full" type="submit">Cambiar Contraseña</ion-button>
+        <ion-button id="volver" class="boton-registro" expand="full" type="submit" routerLink="/login">Volver a Login</ion-button>
+      </ion-card>
+    </form>
+  </div>
+</ion-content>

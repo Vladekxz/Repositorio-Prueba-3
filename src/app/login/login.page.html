@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title  >
+      Web
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card class="card-login">
+      <ion-card-content>
+
+        <ion-item>
+          <ion-input id="usuario" label="Usuario:" minlength="3" maxlength="8" pattern="[a-zA-Z0-9]*" required [(ngModel)]="usuario"></ion-input>
+        </ion-item>
+        <div *ngIf="intentadoIniciarSesion && (usuario.length < 3 || usuario.length > 8 || !usuario.match(usernamePattern))">
+          <p class="error-message">El usuario debe tener entre 3 y 8 caracteres alfanuméricos.</p>
+        </div>
+  
+        <ion-item>
+          <ion-input id="contrasenia" label="Contraseña" type="password" minlength="4" maxlength="4" required [(ngModel)]="contrasenia"></ion-input>
+        </ion-item>
+        <div *ngIf="intentadoIniciarSesion && (contrasenia.length !== 4 || !contrasenia.match(numberPattern))">
+          <p class="error-message">La contraseña debe ser un número de 4 dígitos.</p>
+        </div>
+
+      </ion-card-content>
+  
+      <ion-button id="login" class="boton-login" expand="full" (click)="checkLogin()">Iniciar sesión</ion-button>
+      
+      <div class="botones">
+        <ion-button id="registrarse" class="boton-register"  routerLink="/register">Registrarse</ion-button>
+        <ion-button id="recovery" class="boton-recovery"  routerLink="/recovery">Recuperar <br> contrasena</ion-button>
+      </div>
+     
+    </ion-card>
+  </div>
+</ion-content>
+
+
+
+
+
+

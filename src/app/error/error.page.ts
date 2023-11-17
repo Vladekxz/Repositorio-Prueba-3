@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
+
+
+@Component({
+  selector: 'app-error',
+  templateUrl: './error.page.html',
+  styleUrls: ['./error.page.scss'],
+})
+export class ErrorPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
